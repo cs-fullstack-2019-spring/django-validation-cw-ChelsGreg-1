@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Form</title>
+</head>
+<body>
+
+{{ errors }}
+
+<h1>Cars</h1>
+<!--TO LIST ENTRIES IN CARMODEL-->
+{% for car in zoomZoom %}
+<p>Make: {{ car.make }}  Model: {{car.model}}</p>
+{% endfor %}
+
+<h2>Car Form</h2>
+<!--FOR FORM TO GO TO CONGRATS PAGE-->
+<form action="{% url 'congrats' %}" method="POST">
+    {% csrf_token %}
+    <!--TO LIST OBJECTS IN MODEL AS FORM ENTRIES-->
+    {{ carform.as_p}}
+    <button>Submit</button>
+</form>
+
+
+
+</body>
+</html>
